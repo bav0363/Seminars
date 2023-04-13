@@ -1,47 +1,120 @@
-﻿void FillArray(int[] collection)         // Метод заполнение массива с заданным размером случайным числами в интервале от 1 до 19
-{
-    int lenght = collection.Length;
-    int index = 0;
-    while (index < lenght)
-    {
-        collection[index] = new Random().Next(1, 20);
-        index++;
-    }
-}
+﻿
+// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и 
+// на выходе показывает вторую цифру этого числа.
 
-void PrintArray(int[] collection)        // Метод вывод массива на печать
-{
-    int lenght = collection.Length;
-    int index = 0;
-    while (index < lenght)
-    {
-        Console.Write(collection[index] + " ");
-        index++;
-    }
-}
+// Решение рассматриваю общее, т.е. как для положительных трехзначных чисел, так как и для отрицательных
+// (знак "-" перед числом не рассматривается как отдельный знак)
 
-int IndexOf(int[] collection, int find)  // Метод нахождение индекса элемента в массиве, соответствующего заданному условию      
-{
-    int count = collection.Length;
-    int index = 0;
-    int position = -1;      // -1 - будет выводится, если совпадение не найдено в массиве 
+// int SecOfNum(int number) // Метод принимает на вход трехзначное число и выдает вторую цифру этого числа
+// {
+//     int second = 0;
 
-    while (index < count)
-    {
-        if (collection[index] == find)
-        {
-            position = index;
-            break;              // оставновить цикл как только будет найдено первое совпадение            
-        }
-        index++;
-    }
-    return position;
-}
+//     if (number > 99 && number < 1000)
+//     {
+//         second = number % 100 / 10;
+//     }
+//     else if (number < -99 && number > -1000)
+//     {
+//         second = number % 100 / 10 * -1;
+//     }
+//     else
+//     {
+//         second = -1;
+//     }
+//     return second;
+// }
+
+// Console.Write("Введите трехзначное число: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// int sec = SecOfNum(number);
+// if (sec != -1)
+// {
+//     Console.WriteLine("Второй цифрой введенного трехзначного числа является: " + sec);
+// }
+// else
+// {
+//     Console.WriteLine("Введенное число не является трехзначным");        
+// }
 
 
-int[] array = new int[20];      // Определили, что нам нужно сгенерировать массив из 20 элементов
-FillArray(array);               // Заполнили массив случайными числами в интервале от 1 до 20 (20 не входит)
-PrintArray(array);              // Напечатали полученный массив
-Console.WriteLine();            // Можно вставить пустую строчку, чтобы результат не сливался в консоле
-int pos = IndexOf(array, 15);   // Записали результат работы метода в переменную 
-Console.WriteLine(pos);         // Вывели на печать полученную переменную
+// Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+
+
+// int Correct(int number) // Метод принимает на вход число и приводит его к трехзначному, обрезая его справа при необходимости
+// {
+//     if (number > 1000 || number < -1000)
+//     {
+//         while (number > 1000 || number < -1000)
+//         {
+//             number = number / 10;
+//         }
+//         return number;
+//     }return number;
+// }
+
+// int ThirdOfNum(int number) // Метод принимает на вход число и, если оно трехначное, выдает последнюю цифру этого числа
+// {
+//     int third = 0;
+
+//     if (number > 99)
+//     {
+//         third = number % 10;
+//     }
+//     else if (number < -99)
+//     {
+//         third = number % 10 * -1;
+//     }
+//     else
+//     {
+//         third = -1;
+//     }
+//     return third;
+// }
+
+// Console.Write("Введите число: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// int newnumber = Correct(number);
+// int third = ThirdOfNum(newnumber);
+// if (third != -1)
+// {
+//     Console.WriteLine("Третьей цифрой введенного числа является: " + third);
+// }
+// else
+// {
+//     Console.WriteLine("Введенное число не имеет третьей цифры");
+// }
+
+
+// Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и 
+// проверяет, является ли этот день выходным.
+
+// bool Holiday(int arg)   // Метод на вход принимает цифру, которая соответствует дню недели, и 
+// //возвращает булевое значение этой цифры в зависимости выходной это день или нет
+// {
+//     if(arg > 0 && arg < 6)
+//     {
+//         return true;       
+//     }
+//     else
+//     {
+//         return false;       
+//     }
+// }
+
+// Console.Write("Введите день недели: ");
+// int number = Convert.ToInt32(Console.ReadLine());
+// if(number < 1 || number > 7)        // Выполняется проверка на корректность введенных данных
+// {
+//     Console.WriteLine("Введенное значение не соответствует дню недели (от 1 до 7). Попробуйте снова");
+// }
+// else
+// {
+//     if(Holiday(number))
+//     {
+//         Console.WriteLine("День является рабочим");
+//     }
+//     else
+//     {
+//         Console.WriteLine("День является выходным");
+//     }
+// }
